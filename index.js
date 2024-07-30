@@ -27,6 +27,15 @@ app.get('/files/:filename', (req, res) => {
     });
 });
 
+app.get('/edit/:filename', (req, res) => {
+    res.render("edit", {filename: req.params.filename});
+});
+
+app.post('/edit/:filename', (req, res) => {
+    fs.rename(`./files/${req.body.PreviousTitle}`, `./files/${req.body.NewTitle.split(' ').join('_')}.txt`, (err) => {
+        res.redirect('/');
+    });
+});
 
 app.listen(port, () => {
     console.log(`app is listening at http://localhost:${port}`);
