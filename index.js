@@ -37,6 +37,12 @@ app.post('/edit/:filename', (req, res) => {
     });
 });
 
+app.get('/delete/:filename', (req, res) => {
+    fs.unlink(`./files/${req.params.filename}`, (err) => {
+        res.redirect('/');
+    });
+});
+
 app.listen(port, () => {
     console.log(`app is listening at http://localhost:${port}`);
 }); 

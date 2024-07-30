@@ -21,9 +21,10 @@
                 <% files.forEach(value => { %>
                     <div class="task bg-[#03346E] rounded-xl p-4 mb-3">
                         <h1 class="text-white text-3xl tracking-tighter"><%= value %></h1>
-                        <div class="flex w-full justify-between mt-3">
+                        <div class="flex w-full justify-end gap-4 mt-3">
                             <a class="text-[#E2E2B6] inline-block opacity-85" href="./files/<%= value%>">Read more</a>
                             <a class="text-[#E2E2B6] opacity-85" href="/edit/<%= value%>">Edit</a>
+                            <a class="text-[#E2E2B6] opacity-85" href="/delete/<%= value%>">Delete</a>
                         </div>
                     </div>
                 <% }) %>
