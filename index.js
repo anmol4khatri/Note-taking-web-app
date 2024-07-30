@@ -21,6 +21,12 @@ app.post('/create', (req, res) => {
     });
 });
 
+app.get('/files/:filename', (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`, 'utf8', (err, data) => {
+        res.render("show", {filename: req.params.filename, filedata: data});
+    });
+});
+
 
 app.listen(port, () => {
     console.log(`app is listening at http://localhost:${port}`);
